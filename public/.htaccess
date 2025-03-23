@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    # Désactiver l'option MultiViews
+    Options -MultiViews
+
+    # Activer le moteur de réécriture
+    RewriteEngine On
+
+    # Vérifier si le fichier demandé n'existe pas
+    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # Réécrire toutes les requêtes vers index.html avec les paramètres de requête conservés
+    RewriteRule ^ index.html [QSA,L]
+</IfModule>
